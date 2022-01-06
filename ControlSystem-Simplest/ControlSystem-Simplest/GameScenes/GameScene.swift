@@ -31,16 +31,20 @@ class GameScene: SKScene {
 extension GameScene {
     private func moveCharacter(location: CGPoint) {
         guard let theCharacter = theCharacter else { return }
-        let xDiff = abs(Float(location.x) - Float(theCharacter.position.x))
-        let yDiff = abs(Float(location.y) - Float(theCharacter.position.y))
-        let isHorizontalMove = xDiff > yDiff
+        let xDiff = Float(location.x) - Float(theCharacter.position.x)
+        let yDiff = Float(location.y) - Float(theCharacter.position.y)
+        let totalDiff = abs(xDiff) + abs(yDiff)
+        let xRatio = abs(xDiff) / totalDiff
+        let yRatio = abs(yDiff) / totalDiff
         
-        if  isHorizontalMove {
-            let xOffset: CGFloat = location.x > theCharacter.position.x ? 30 : -30
-            theCharacter.position = CGPoint(x: theCharacter.position.x + xOffset, y: theCharacter.position.y)
-        } else {
-            let yOffset: CGFloat = location.y > theCharacter.position.y ? 30 : -30
-            theCharacter.position = CGPoint(x: theCharacter.position.x, y: theCharacter.position.y + yOffset)
-        }
+        let totalDuration: Float = 1
+        let firstActionDuration = TimeInterval(totalDuration * xRatio)
+        let secondActionDuration = TimeInterval(totalDuration * yRatio)
+        
+        theCharacter.removeAllActions()
+        let firstAction = SKAction.moveBy(x: CGFloat(xDiff), y: 0, duration: firstActionDuration)
+        let secondAction = SKAction.moveBy(x: 0, y: CGFloat(yDiff), duration: secondActionDuration)
+        let seqeunce = SKAction.sequence([firstAction, secondAction])
+        theCharacter.run(seqeunce)
     }
 }
