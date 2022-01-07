@@ -18,7 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let view = view as? SKView else { fatalError() }
+        view.showsFPS = true
+        view.showsNodeCount = true
+        view.ignoresSiblingOrder = true
         let gameScene = SKScene(fileNamed: "GameScene")
+        gameScene?.size = view.bounds.size
         view.presentScene(gameScene)
     }
 }
