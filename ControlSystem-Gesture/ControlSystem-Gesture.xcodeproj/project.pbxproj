@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		420BCED7278EF3F90096B2F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420BCED6278EF3F90096B2F5 /* AppDelegate.swift */; };
+		420BCED9278EF3F90096B2F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420BCED8278EF3F90096B2F5 /* SceneDelegate.swift */; };
+		420BCEDB278EF3F90096B2F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420BCEDA278EF3F90096B2F5 /* ViewController.swift */; };
+		420BCEDE278EF3F90096B2F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEDC278EF3F90096B2F5 /* Main.storyboard */; };
+		420BCEE0278EF3F90096B2F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEDF278EF3F90096B2F5 /* Assets.xcassets */; };
+		420BCEE3278EF3F90096B2F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEE1278EF3F90096B2F5 /* LaunchScreen.storyboard */; };
+		420BCEEB278EF4E40096B2F5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420BCEEA278EF4E40096B2F5 /* GameScene.swift */; };
+		420BCEED278EF5020096B2F5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEEC278EF5020096B2F5 /* GameScene.sks */; };
+		420BCEFB278EF9CD0096B2F5 /* Ship10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEEF278EF9CC0096B2F5 /* Ship10@2x.png */; };
+		420BCEFC278EF9CD0096B2F5 /* Ship6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF0278EF9CC0096B2F5 /* Ship6@2x.png */; };
+		420BCEFD278EF9CD0096B2F5 /* Ship11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF1278EF9CC0096B2F5 /* Ship11@2x.png */; };
+		420BCEFE278EF9CD0096B2F5 /* Ship2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF2278EF9CC0096B2F5 /* Ship2@2x.png */; };
+		420BCEFF278EF9CD0096B2F5 /* Ship1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF3278EF9CD0096B2F5 /* Ship1@2x.png */; };
+		420BCF00278EF9CD0096B2F5 /* Ship7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF4278EF9CD0096B2F5 /* Ship7@2x.png */; };
+		420BCF01278EF9CD0096B2F5 /* Ship9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF5278EF9CD0096B2F5 /* Ship9@2x.png */; };
+		420BCF02278EF9CD0096B2F5 /* Ship12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF6278EF9CD0096B2F5 /* Ship12@2x.png */; };
+		420BCF03278EF9CD0096B2F5 /* Ship5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF7278EF9CD0096B2F5 /* Ship5@2x.png */; };
+		420BCF04278EF9CD0096B2F5 /* Ship3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF8278EF9CD0096B2F5 /* Ship3@2x.png */; };
+		420BCF05278EF9CD0096B2F5 /* Ship4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEF9278EF9CD0096B2F5 /* Ship4@2x.png */; };
+		420BCF06278EF9CD0096B2F5 /* Ship8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420BCEFA278EF9CD0096B2F5 /* Ship8@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		420BCED3278EF3F90096B2F5 /* ControlSystem-Gesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ControlSystem-Gesture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		420BCED6278EF3F90096B2F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		420BCED8278EF3F90096B2F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		420BCEDA278EF3F90096B2F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		420BCEDD278EF3F90096B2F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		420BCEDF278EF3F90096B2F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		420BCEE2278EF3F90096B2F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		420BCEE4278EF3F90096B2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		420BCEEA278EF4E40096B2F5 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		420BCEEC278EF5020096B2F5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		420BCEEF278EF9CC0096B2F5 /* Ship10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship10@2x.png"; sourceTree = "<group>"; };
+		420BCEF0278EF9CC0096B2F5 /* Ship6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship6@2x.png"; sourceTree = "<group>"; };
+		420BCEF1278EF9CC0096B2F5 /* Ship11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship11@2x.png"; sourceTree = "<group>"; };
+		420BCEF2278EF9CC0096B2F5 /* Ship2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship2@2x.png"; sourceTree = "<group>"; };
+		420BCEF3278EF9CD0096B2F5 /* Ship1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship1@2x.png"; sourceTree = "<group>"; };
+		420BCEF4278EF9CD0096B2F5 /* Ship7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship7@2x.png"; sourceTree = "<group>"; };
+		420BCEF5278EF9CD0096B2F5 /* Ship9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship9@2x.png"; sourceTree = "<group>"; };
+		420BCEF6278EF9CD0096B2F5 /* Ship12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship12@2x.png"; sourceTree = "<group>"; };
+		420BCEF7278EF9CD0096B2F5 /* Ship5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship5@2x.png"; sourceTree = "<group>"; };
+		420BCEF8278EF9CD0096B2F5 /* Ship3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship3@2x.png"; sourceTree = "<group>"; };
+		420BCEF9278EF9CD0096B2F5 /* Ship4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship4@2x.png"; sourceTree = "<group>"; };
+		420BCEFA278EF9CD0096B2F5 /* Ship8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship8@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		420BCED0278EF3F90096B2F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		420BCECA278EF3F90096B2F5 = {
+			isa = PBXGroup;
+			children = (
+				420BCED5278EF3F90096B2F5 /* ControlSystem-Gesture */,
+				420BCED4278EF3F90096B2F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		420BCED4278EF3F90096B2F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				420BCED3278EF3F90096B2F5 /* ControlSystem-Gesture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		420BCED5278EF3F90096B2F5 /* ControlSystem-Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				420BCF09278EFA050096B2F5 /* GameScenes */,
+				420BCF07278EF9FD0096B2F5 /* ViewControllers */,
+				420BCF0A278EFA250096B2F5 /* Views */,
+				420BCF08278EFA020096B2F5 /* Supports */,
+				420BCEEE278EF9BB0096B2F5 /* Ship.atlas */,
+				420BCEDF278EF3F90096B2F5 /* Assets.xcassets */,
+				420BCEE4278EF3F90096B2F5 /* Info.plist */,
+			);
+			path = "ControlSystem-Gesture";
+			sourceTree = "<group>";
+		};
+		420BCEEE278EF9BB0096B2F5 /* Ship.atlas */ = {
+			isa = PBXGroup;
+			children = (
+				420BCEF3278EF9CD0096B2F5 /* Ship1@2x.png */,
+				420BCEF2278EF9CC0096B2F5 /* Ship2@2x.png */,
+				420BCEF8278EF9CD0096B2F5 /* Ship3@2x.png */,
+				420BCEF9278EF9CD0096B2F5 /* Ship4@2x.png */,
+				420BCEF7278EF9CD0096B2F5 /* Ship5@2x.png */,
+				420BCEF0278EF9CC0096B2F5 /* Ship6@2x.png */,
+				420BCEF4278EF9CD0096B2F5 /* Ship7@2x.png */,
+				420BCEFA278EF9CD0096B2F5 /* Ship8@2x.png */,
+				420BCEF5278EF9CD0096B2F5 /* Ship9@2x.png */,
+				420BCEEF278EF9CC0096B2F5 /* Ship10@2x.png */,
+				420BCEF1278EF9CC0096B2F5 /* Ship11@2x.png */,
+				420BCEF6278EF9CD0096B2F5 /* Ship12@2x.png */,
+			);
+			path = Ship.atlas;
+			sourceTree = "<group>";
+		};
+		420BCF07278EF9FD0096B2F5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				420BCEDA278EF3F90096B2F5 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		420BCF08278EFA020096B2F5 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				420BCED6278EF3F90096B2F5 /* AppDelegate.swift */,
+				420BCED8278EF3F90096B2F5 /* SceneDelegate.swift */,
+				420BCEE1278EF3F90096B2F5 /* LaunchScreen.storyboard */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		420BCF09278EFA050096B2F5 /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				420BCEEA278EF4E40096B2F5 /* GameScene.swift */,
+				420BCEEC278EF5020096B2F5 /* GameScene.sks */,
+			);
+			path = GameScenes;
+			sourceTree = "<group>";
+		};
+		420BCF0A278EFA250096B2F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				420BCEDC278EF3F90096B2F5 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		420BCED2278EF3F90096B2F5 /* ControlSystem-Gesture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 420BCEE7278EF3F90096B2F5 /* Build configuration list for PBXNativeTarget "ControlSystem-Gesture" */;
+			buildPhases = (
+				420BCECF278EF3F90096B2F5 /* Sources */,
+				420BCED0278EF3F90096B2F5 /* Frameworks */,
+				420BCED1278EF3F90096B2F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ControlSystem-Gesture";
+			productName = "ControlSystem-Gesture";
+			productReference = 420BCED3278EF3F90096B2F5 /* ControlSystem-Gesture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		420BCECB278EF3F90096B2F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					420BCED2278EF3F90096B2F5 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 420BCECE278EF3F90096B2F5 /* Build configuration list for PBXProject "ControlSystem-Gesture" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 420BCECA278EF3F90096B2F5;
+			productRefGroup = 420BCED4278EF3F90096B2F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				420BCED2278EF3F90096B2F5 /* ControlSystem-Gesture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		420BCED1278EF3F90096B2F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				420BCEED278EF5020096B2F5 /* GameScene.sks in Resources */,
+				420BCF01278EF9CD0096B2F5 /* Ship9@2x.png in Resources */,
+				420BCEFC278EF9CD0096B2F5 /* Ship6@2x.png in Resources */,
+				420BCF00278EF9CD0096B2F5 /* Ship7@2x.png in Resources */,
+				420BCEE3278EF3F90096B2F5 /* LaunchScreen.storyboard in Resources */,
+				420BCF06278EF9CD0096B2F5 /* Ship8@2x.png in Resources */,
+				420BCF02278EF9CD0096B2F5 /* Ship12@2x.png in Resources */,
+				420BCEE0278EF3F90096B2F5 /* Assets.xcassets in Resources */,
+				420BCEFB278EF9CD0096B2F5 /* Ship10@2x.png in Resources */,
+				420BCF05278EF9CD0096B2F5 /* Ship4@2x.png in Resources */,
+				420BCF04278EF9CD0096B2F5 /* Ship3@2x.png in Resources */,
+				420BCEDE278EF3F90096B2F5 /* Main.storyboard in Resources */,
+				420BCF03278EF9CD0096B2F5 /* Ship5@2x.png in Resources */,
+				420BCEFF278EF9CD0096B2F5 /* Ship1@2x.png in Resources */,
+				420BCEFD278EF9CD0096B2F5 /* Ship11@2x.png in Resources */,
+				420BCEFE278EF9CD0096B2F5 /* Ship2@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		420BCECF278EF3F90096B2F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				420BCEDB278EF3F90096B2F5 /* ViewController.swift in Sources */,
+				420BCED7278EF3F90096B2F5 /* AppDelegate.swift in Sources */,
+				420BCEEB278EF4E40096B2F5 /* GameScene.swift in Sources */,
+				420BCED9278EF3F90096B2F5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		420BCEDC278EF3F90096B2F5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				420BCEDD278EF3F90096B2F5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		420BCEE1278EF3F90096B2F5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				420BCEE2278EF3F90096B2F5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		420BCEE5278EF3F90096B2F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		420BCEE6278EF3F90096B2F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		420BCEE8278EF3F90096B2F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DX4KVUBK56;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ControlSystem-Gesture/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.KasRoid.ControlSystem-Gesture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		420BCEE9278EF3F90096B2F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DX4KVUBK56;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ControlSystem-Gesture/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.KasRoid.ControlSystem-Gesture";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		420BCECE278EF3F90096B2F5 /* Build configuration list for PBXProject "ControlSystem-Gesture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				420BCEE5278EF3F90096B2F5 /* Debug */,
+				420BCEE6278EF3F90096B2F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		420BCEE7278EF3F90096B2F5 /* Build configuration list for PBXNativeTarget "ControlSystem-Gesture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				420BCEE8278EF3F90096B2F5 /* Debug */,
+				420BCEE9278EF3F90096B2F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 420BCECB278EF3F90096B2F5 /* Project object */;
+}
