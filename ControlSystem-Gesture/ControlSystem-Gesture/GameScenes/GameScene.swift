@@ -9,15 +9,17 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    var ship: SKSpriteNode?
-    var movingAnimation: SKAction?
+    private var ship: SKSpriteNode?
+    private var movingAnimation: SKAction?
+    private let tapRecognizer = UITapGestureRecognizer()
+    private let rotateRecognizer = UIRotationGestureRecognizer()
     
     // MARK: - Lifecycle
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        ship = SKSpriteNode(imageNamed: "Ship")
-        addChild(ship!)
+        addShip()
         setupAnimation()
+        addGestures(view: view)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -25,8 +27,35 @@ class GameScene: SKScene {
     }
 }
 
+// MARK: - Gestures
+extension GameScene {
+    func removeGestures() {
+        view?.gestureRecognizers?.removeAll()
+    }
+}
+
+// MARK: - Selectors
+extension GameScene {
+    @objc
+    func didTap(_ sender: UITapGestureRecognizer) {
+        ship?.run(movingAnimation!)
+    }
+    
+    @objc
+    func didRotate(_ sender: UIRotationGestureRecognizer) {
+        if sender.state == .ended {
+            // TODO
+        }
+    }
+}
+
 // MARK: - UI
 extension GameScene {
+    private func addShip() {
+        ship = SKSpriteNode(imageNamed: "Ship")
+        addChild(ship!)
+    }
+    
     private func setupAnimation() {
         let atlas = SKTextureAtlas(named: "Ship")
         var atlasTextures: [SKTexture] = []
@@ -36,7 +65,15 @@ extension GameScene {
             atlasTextures.append(texture)
         }
         let atlasAnimation = SKAction.animate(with: atlasTextures, timePerFrame: 0.05)
-        movingAnimation = SKAction.repeat(atlasAnimation, count: 20)
-        ship?.run(movingAnimation!)
+        movingAnimation = SKAction.repeat(atlasAnimation, count: 1)
+    }
+    
+    private func addGestures(view: SKView) {
+        tapRecognizer.addTarget(self, action: #selector(didTap(_:)))
+        view.addGestureRecognizer(tapRecognizer)
+        view.isMultipleTouchEnabled = true
+        
+        rotateRecognizer.addTarget(self, action: #selector(didRotate(_:)))
+        view.addGestureRecognizer(rotateRecognizer)
     }
 }
