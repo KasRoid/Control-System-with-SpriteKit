@@ -12,8 +12,14 @@ class GameScene: SKScene {
     private var ship: SKSpriteNode?
     private var target: SKSpriteNode?
     private var movingAnimation: SKAction?
+    
     private let tapRecognizer = UITapGestureRecognizer()
     private let rotateRecognizer = UIRotationGestureRecognizer()
+    private let swipeLeftRecognizer = UISwipeGestureRecognizer()
+    private let swipeRightRecognizer = UISwipeGestureRecognizer()
+    private let swipeUpRecognizer = UISwipeGestureRecognizer()
+    private let swipeDownRecognizer = UISwipeGestureRecognizer()
+    
     private var offset: CGFloat = 0
     private let length: CGFloat = 200
     private var theRotation: CGFloat = 0
@@ -28,13 +34,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
-    }
-}
-
-// MARK: - Gestures
-extension GameScene {
-    func removeGestures() {
-        view?.gestureRecognizers?.removeAll()
     }
 }
 
@@ -72,6 +71,63 @@ extension GameScene {
             break
         }
     }
+    
+    @objc
+    func didSwipe(_ sender: UISwipeGestureRecognizer) {
+        var zRotationValue: Double
+        
+        switch sender {
+        case swipeLeftRecognizer:
+            zRotationValue = 90
+        case swipeRightRecognizer:
+            zRotationValue = 270
+        case swipeUpRecognizer:
+            zRotationValue = 0
+        case swipeDownRecognizer:
+            zRotationValue = 180
+        default:
+            fatalError()
+        }
+        
+        ship?.zRotation = CGFloat(degreesToRadians(value: zRotationValue))
+        target?.alpha = 0
+    }
+}
+
+// MARK: - Math
+extension GameScene {
+    private func degreesToRadians(value: Double) -> Double {
+        return value * Double.pi / 180
+    }
+    
+    private func radiansToDegrees(value: Double) -> Double {
+        return value * 180 / Double.pi
+    }
+}
+
+// MARK: - Gestures
+extension GameScene {
+    private func addGestures(view: SKView) {
+        tapRecognizer.addTarget(self, action: #selector(didTap(_:)))
+        view.addGestureRecognizer(tapRecognizer)
+        view.isMultipleTouchEnabled = true
+        
+        rotateRecognizer.addTarget(self, action: #selector(didRotate(_:)))
+        view.addGestureRecognizer(rotateRecognizer)
+        
+        [swipeLeftRecognizer, swipeRightRecognizer, swipeUpRecognizer, swipeDownRecognizer].forEach {
+            $0.addTarget(self, action: #selector(didSwipe(_:)))
+            view.addGestureRecognizer($0)
+        }
+        swipeLeftRecognizer.direction = .left
+        swipeRightRecognizer.direction = .right
+        swipeUpRecognizer.direction = .up
+        swipeDownRecognizer.direction = .down
+    }
+    
+    private func removeGestures() {
+        view?.gestureRecognizers?.removeAll()
+    }
 }
 
 // MARK: - UI
@@ -97,14 +153,5 @@ extension GameScene {
         }
         let atlasAnimation = SKAction.animate(with: atlasTextures, timePerFrame: 0.05)
         movingAnimation = SKAction.repeat(atlasAnimation, count: 1)
-    }
-    
-    private func addGestures(view: SKView) {
-        tapRecognizer.addTarget(self, action: #selector(didTap(_:)))
-        view.addGestureRecognizer(tapRecognizer)
-        view.isMultipleTouchEnabled = true
-        
-        rotateRecognizer.addTarget(self, action: #selector(didRotate(_:)))
-        view.addGestureRecognizer(rotateRecognizer)
     }
 }
