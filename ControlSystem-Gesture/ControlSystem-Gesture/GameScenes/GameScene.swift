@@ -19,10 +19,12 @@ class GameScene: SKScene {
     private let swipeRightRecognizer = UISwipeGestureRecognizer()
     private let swipeUpRecognizer = UISwipeGestureRecognizer()
     private let swipeDownRecognizer = UISwipeGestureRecognizer()
+    private let panRecongnizer = UIPanGestureRecognizer()
     
     private var offset: CGFloat = 0
     private let length: CGFloat = 200
     private var theRotation: CGFloat = 0
+    private var currentPosition: CGPoint = .zero
     
     // MARK: - Lifecycle
     override func didMove(to view: SKView) {
@@ -31,9 +33,10 @@ class GameScene: SKScene {
         setupAnimation()
         addGestures(view: view)
     }
-    
-    override func update(_ currentTime: TimeInterval) {
-        
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        currentPosition = touch.location(in: view)
     }
 }
 
@@ -92,6 +95,15 @@ extension GameScene {
         ship?.zRotation = CGFloat(degreesToRadians(value: zRotationValue))
         target?.alpha = 0
     }
+    
+    @objc
+    func didPan(_ sender: UIPanGestureRecognizer) {
+        var touchLocation = sender.location(in: view)
+        let offsets = CGPoint(x: currentPosition.x - touchLocation.x, y: -(currentPosition.y - touchLocation.y))
+        currentPosition = touchLocation
+        touchLocation = CGPoint(x: ship!.position.x - offsets.x, y: ship!.position.y - offsets.y)
+        ship?.position = touchLocation
+    }
 }
 
 // MARK: - Math
@@ -123,6 +135,9 @@ extension GameScene {
         swipeRightRecognizer.direction = .right
         swipeUpRecognizer.direction = .up
         swipeDownRecognizer.direction = .down
+        
+        panRecongnizer.addTarget(self, action: #selector(didPan(_:)))
+        view.addGestureRecognizer(panRecongnizer)
     }
     
     private func removeGestures() {
