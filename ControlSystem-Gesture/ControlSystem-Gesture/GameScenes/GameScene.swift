@@ -20,6 +20,8 @@ class GameScene: SKScene {
     private let swipeUpRecognizer = UISwipeGestureRecognizer()
     private let swipeDownRecognizer = UISwipeGestureRecognizer()
     private let panRecongnizer = UIPanGestureRecognizer()
+    private let longPressRecognizer = UILongPressGestureRecognizer()
+    private let pinchRecognizer = UIPinchGestureRecognizer()
     
     private var offset: CGFloat = 0
     private let length: CGFloat = 200
@@ -104,6 +106,19 @@ extension GameScene {
         touchLocation = CGPoint(x: ship!.position.x - offsets.x, y: ship!.position.y - offsets.y)
         ship?.position = touchLocation
     }
+    
+    @objc
+    func didLongPress(_ sender: UILongPressGestureRecognizer) {
+        ship?.xScale = 1
+        ship?.yScale = 1
+    }
+    
+    @objc
+    func didPinch(_ sender: UIPinchGestureRecognizer) {
+        ship?.xScale = sender.scale
+        ship?.yScale = sender.scale
+        print(sender.velocity)
+    }
 }
 
 // MARK: - Math
@@ -138,6 +153,13 @@ extension GameScene {
         
         panRecongnizer.addTarget(self, action: #selector(didPan(_:)))
         view.addGestureRecognizer(panRecongnizer)
+        
+        longPressRecognizer.addTarget(self, action: #selector(didLongPress(_:)))
+        longPressRecognizer.numberOfTouchesRequired = 2
+        view.addGestureRecognizer(longPressRecognizer)
+        
+        pinchRecognizer.addTarget(self, action: #selector(didPinch(_:)))
+        view.addGestureRecognizer(pinchRecognizer)
     }
     
     private func removeGestures() {
