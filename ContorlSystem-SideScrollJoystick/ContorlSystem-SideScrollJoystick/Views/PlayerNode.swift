@@ -25,6 +25,7 @@ class PlayerNode: SKSpriteNode {
 extension PlayerNode {
     func updatePosition(xMove: CGFloat, yMove: CGFloat) {
         position = CGPoint(x: position.x + xMove, y: position.y + yMove)
+        print(position)
         xScale = xMove < 0 ? -1 : 1
     }
 }
@@ -33,7 +34,7 @@ extension PlayerNode {
 extension PlayerNode {
     private func setPhysics(texture: SKTexture) {
         let body = SKPhysicsBody(texture: texture, size: texture.size())
-        body.affectedByGravity = false
+        body.affectedByGravity = true
         body.allowsRotation = false
         body.categoryBitMask = BodyType.player.rawValue
         body.contactTestBitMask = BodyType.ground.rawValue

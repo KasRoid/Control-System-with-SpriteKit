@@ -83,6 +83,7 @@ extension GameScene {
     private func moveByDirection() {
         var xMove: CGFloat = 0
         var yMove: CGFloat = 0
+        let multiplier: CGFloat = 4
         
         switch currentDirection {
         case .N:
@@ -106,7 +107,7 @@ extension GameScene {
             xMove = -1
             yMove = -1
         }
-        playerNode.updatePosition(xMove: xMove, yMove: yMove)
+        playerNode.updatePosition(xMove: xMove * multiplier, yMove: yMove * multiplier)
     }
     
     private func showStick(_ isOn: Bool, animated: Bool = true) {
@@ -127,11 +128,24 @@ extension GameScene {
     }
 }
 
+// MARK: - SKPhysicsContactDelegate
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA
+        if bodyA.node == playerNode {
+            print("bodyA is Player")
+        } else {
+            print("bodyB is Player")
+        }
+    }
+}
+
 // MARK: - UI
 extension GameScene {
     private func setBasics() {
         backgroundColor = .black
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        physicsWorld.contactDelegate = self
     }
     
     private func addNodes() {
@@ -147,6 +161,7 @@ extension GameScene {
         showStick(false, animated: false)
         
         playerNode.position = CGPoint(x: 0, y: 0)
+        playerNode.name = "player"
         addChild(playerNode)
         
         let groundNode = GroundNode(imageName: "platform", location: CGPoint(x: -500, y: -80), quantity: 8)

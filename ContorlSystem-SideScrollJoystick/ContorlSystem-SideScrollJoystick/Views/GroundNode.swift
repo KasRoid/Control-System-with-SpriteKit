@@ -18,6 +18,7 @@ class GroundNode: SKNode {
             node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
             node.physicsBody?.isDynamic = false
             node.physicsBody?.categoryBitMask = BodyType.ground.rawValue
+            node.name = "ground"
             addChild(node)
         }
     }
