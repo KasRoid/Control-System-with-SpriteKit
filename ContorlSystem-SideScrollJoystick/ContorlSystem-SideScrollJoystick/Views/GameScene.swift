@@ -17,7 +17,7 @@ class GameScene: SKScene {
     private var isStickActive = false
     private var shipSpeedX: CGFloat = 0.1
     private var shipSpeedY: CGFloat = 0.1
-    private var directionMode = false
+    private var directionMode = true
     private var currentDirection: Direction = .N
     
     // MARK: - Lifecycle
@@ -106,7 +106,7 @@ extension GameScene {
             xMove = -1
             yMove = -1
         }
-        playerNode.position = CGPoint(x: playerNode.position.x + xMove, y: playerNode.position.y + yMove)
+        playerNode.updatePosition(xMove: xMove, yMove: yMove)
     }
     
     private func showStick(_ isOn: Bool, animated: Bool = true) {
@@ -148,5 +148,9 @@ extension GameScene {
         
         playerNode.position = CGPoint(x: 0, y: 0)
         addChild(playerNode)
+        
+        let groundNode = GroundNode(imageName: "platform", location: CGPoint(x: -500, y: -80), quantity: 8)
+        groundNode.zPosition = -1
+        addChild(groundNode)
     }
 }

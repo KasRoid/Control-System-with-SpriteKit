@@ -21,9 +21,17 @@ class PlayerNode: SKSpriteNode {
     }
 }
 
+// MARK: - Methods
+extension PlayerNode {
+    func updatePosition(xMove: CGFloat, yMove: CGFloat) {
+        position = CGPoint(x: position.x + xMove, y: position.y + yMove)
+        xScale = xMove < 0 ? -1 : 1
+    }
+}
+
 // MARK: - Physics
 extension PlayerNode {
-    func setPhysics(texture: SKTexture) {
+    private func setPhysics(texture: SKTexture) {
         let body = SKPhysicsBody(texture: texture, size: texture.size())
         body.affectedByGravity = false
         body.allowsRotation = false
