@@ -69,6 +69,10 @@ extension PlayerNode {
         speedY = y
         speedX == 0 ? stop() : walk()
     }
+    
+    func move() {
+        position = CGPoint(x: position.x + speedX, y: position.y + speedY)
+    }
 }
 
 // MARK: - Physics

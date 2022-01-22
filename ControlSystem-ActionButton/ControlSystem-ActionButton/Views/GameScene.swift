@@ -10,12 +10,9 @@ import SpriteKit
 class GameScene: SKScene {
     
     // MARK: - Properties
-    private let baseNode = SKSpriteNode(imageNamed: "Base")
-    private let ballNode = SKSpriteNode(imageNamed: "Ball")
+    private let joystickNode = JoystickNode(isOn: false)
     private let attackButtonNode = SKSpriteNode(imageNamed: "Button")
     private let playerNode = PlayerNode(imageNamed: "Idle0")
-    
-    private var isStickActive = false
     
     // MARK: - Lifecycle
     override func didMove(to view: SKView) {
@@ -24,77 +21,29 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        moveByPosition()
+        playerNode.move()
     }
     
     // MARK: - Touch Events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            if attackButtonNode.contains(location) {
-                playerNode.attack()
-            } else if !ballNode.frame.contains(location) {
-                isStickActive = true
-                showStick(true)
-                baseNode.position = location
-                ballNode.position = location
-            }
+            attackButtonNode.contains(location) ? playerNode.attack() : joystickNode.activate(at: location)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            guard isStickActive else { return }
+            guard joystickNode.isActive else { return }
             let location = touch.location(in: self)
-            let vector = CGVector(dx: location.x - baseNode.position.x, dy: location.y - baseNode.position.y)
-            let angle = atan2(vector.dy, vector.dx)
-            
-            let length = baseNode.frame.size.height / 2
-            let radian90: CGFloat = 1.57079633
-            let xDistance = sin(angle - radian90) * length
-            let yDistance = cos(angle - radian90) * length
-            
-            ballNode.position = baseNode.frame.contains(location)
-            ? location
-            : CGPoint(x: baseNode.position.x - xDistance, y: baseNode.position.y + yDistance)
-            
-            playerNode.setSpeed(x: round(vector.dx * 0.1), y: round(vector.dy * 0.1))
+            let movement = joystickNode.move(location: location)
+            playerNode.setSpeed(x: movement.x, y: movement.y)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        showStick(false)
-        if isStickActive {
-            playerNode.setSpeed(x: 0, y: 0)
-        } else {
-            let moveAction = SKAction.move(to: baseNode.position, duration: 0.2)
-            moveAction.timingMode = .easeOut
-            ballNode.run(moveAction)
-        }
-    }
-}
-
-// MARK: - Logic
-extension GameScene {
-    private func moveByPosition() {
-        playerNode.position = CGPoint(x: playerNode.position.x + playerNode.speedX, y: playerNode.position.y + playerNode.speedY)
-    }
-    
-    private func showStick(_ isOn: Bool, animated: Bool = true) {
-        if isOn {
-            baseNode.alpha = 0.6
-            ballNode.alpha = 0.6
-        } else {
-            if animated {
-                let fadeAction = SKAction.fadeAlpha(to: 0, duration: 0.2)
-                baseNode.run(fadeAction)
-                ballNode.run(fadeAction)
-            } else {
-                baseNode.alpha = 0
-                ballNode.alpha = 0
-            }
-        }
-        
+        joystickNode.deactivate()
+        playerNode.setSpeed(x: 0, y: 0)
     }
 }
 
@@ -106,31 +55,25 @@ extension GameScene {
     }
     
     private func addNodes() {
+        // Background
         let backgroundNode = SKSpriteNode(imageNamed: "Background")
         backgroundNode.zPosition = -100
         backgroundNode.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         addChild(backgroundNode)
         
-        baseNode.position = CGPoint(x: 0, y: -200)
-        baseNode.xScale = 0.5
-        baseNode.yScale = 0.5
-        addChild(baseNode)
-        ballNode.position = baseNode.position
-        ballNode.xScale = 0.5
-        ballNode.yScale = 0.5
-        addChild(ballNode)
-        showStick(false, animated: false)
+        let groundNode = GroundNode(imageName: "Platform", location: CGPoint(x: -500, y: -80), quantity: 8)
+        groundNode.zPosition = -1
+        addChild(groundNode)
         
+        // Buttons
+        addChild(joystickNode)
         attackButtonNode.position = CGPoint(x: frame.width / 2 - 100, y: -100)
         attackButtonNode.alpha = 0.4
         addChild(attackButtonNode)
         
+        // Player
         playerNode.position = CGPoint(x: 0, y: 0)
         playerNode.name = "player"
         addChild(playerNode)
-        
-        let groundNode = GroundNode(imageName: "Platform", location: CGPoint(x: -500, y: -80), quantity: 8)
-        groundNode.zPosition = -1
-        addChild(groundNode)
     }
 }

@@ -21,6 +21,7 @@
 		42631DA1279AE4B6003703E6 /* Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 42631D9E279AE4B6003703E6 /* Idle.atlas */; };
 		42631DA2279AE4B6003703E6 /* Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 42631D9F279AE4B6003703E6 /* Walk.atlas */; };
 		42631DA3279AE4B6003703E6 /* Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 42631DA0279AE4B6003703E6 /* Attack.atlas */; };
+		42631DA5279BADA9003703E6 /* JoystickNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42631DA4279BADA9003703E6 /* JoystickNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		42631D9E279AE4B6003703E6 /* Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Idle.atlas; sourceTree = "<group>"; };
 		42631D9F279AE4B6003703E6 /* Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Walk.atlas; sourceTree = "<group>"; };
 		42631DA0279AE4B6003703E6 /* Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Attack.atlas; sourceTree = "<group>"; };
+		42631DA4279BADA9003703E6 /* JoystickNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,10 @@
 		42631D90279AE3EF003703E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42631D92279AE429003703E6 /* GameScene.swift */,
 				42631D94279AE42F003703E6 /* GameScene.sks */,
+				42631D92279AE429003703E6 /* GameScene.swift */,
 				42631D97279AE44B003703E6 /* GroundNode.swift */,
+				42631DA4279BADA9003703E6 /* JoystickNode.swift */,
 				42631D99279AE462003703E6 /* PlayerNode.swift */,
 			);
 			path = Views;
@@ -209,6 +212,7 @@
 				42631D7F279AE3C1003703E6 /* ViewController.swift in Sources */,
 				42631D7B279AE3C1003703E6 /* AppDelegate.swift in Sources */,
 				42631D9C279AE472003703E6 /* BodyType.swift in Sources */,
+				42631DA5279BADA9003703E6 /* JoystickNode.swift in Sources */,
 				42631D9A279AE462003703E6 /* PlayerNode.swift in Sources */,
 				42631D93279AE429003703E6 /* GameScene.swift in Sources */,
 				42631D98279AE44B003703E6 /* GroundNode.swift in Sources */,
