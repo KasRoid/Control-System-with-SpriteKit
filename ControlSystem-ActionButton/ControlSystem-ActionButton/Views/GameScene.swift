@@ -16,8 +16,6 @@ class GameScene: SKScene {
     private let playerNode = PlayerNode(imageNamed: "Idle0")
     
     private var isStickActive = false
-    private var speedX: CGFloat = 0.1
-    private var speedY: CGFloat = 0.1
     
     // MARK: - Lifecycle
     override func didMove(to view: SKView) {
@@ -36,7 +34,6 @@ class GameScene: SKScene {
             if attackButtonNode.contains(location) {
                 playerNode.attack()
             } else if !ballNode.frame.contains(location) {
-                playerNode.walk()
                 isStickActive = true
                 showStick(true)
                 baseNode.position = location
@@ -61,17 +58,14 @@ class GameScene: SKScene {
             ? location
             : CGPoint(x: baseNode.position.x - xDistance, y: baseNode.position.y + yDistance)
             
-            speedX = round(vector.dx * 0.1)
-            speedY = round(vector.dy * 0.1)
+            playerNode.setSpeed(x: round(vector.dx * 0.1), y: round(vector.dy * 0.1))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         showStick(false)
         if isStickActive {
-            playerNode.stop()
-            speedX = 0
-            speedY = 0
+            playerNode.setSpeed(x: 0, y: 0)
         } else {
             let moveAction = SKAction.move(to: baseNode.position, duration: 0.2)
             moveAction.timingMode = .easeOut
@@ -83,12 +77,7 @@ class GameScene: SKScene {
 // MARK: - Logic
 extension GameScene {
     private func moveByPosition() {
-        playerNode.position = CGPoint(x: playerNode.position.x + speedX, y: playerNode.position.y + speedY)
-        if speedX > 0 {
-            playerNode.xScale = 1
-        } else if speedX < 0 {
-            playerNode.xScale = -1
-        }
+        playerNode.position = CGPoint(x: playerNode.position.x + playerNode.speedX, y: playerNode.position.y + playerNode.speedY)
     }
     
     private func showStick(_ isOn: Bool, animated: Bool = true) {
@@ -97,7 +86,7 @@ extension GameScene {
             ballNode.alpha = 0.6
         } else {
             if animated {
-                let fadeAction = SKAction.fadeAlpha(to: 0, duration: 0.3)
+                let fadeAction = SKAction.fadeAlpha(to: 0, duration: 0.2)
                 baseNode.run(fadeAction)
                 ballNode.run(fadeAction)
             } else {

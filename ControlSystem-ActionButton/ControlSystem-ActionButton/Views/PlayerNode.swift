@@ -9,11 +9,14 @@ import SpriteKit
 
 class PlayerNode: SKSpriteNode {
     
+    // MARK: - Properties
     private var movementSpeed = 0
     private var walkAction: SKAction?
     private var idleAction: SKAction?
     private var attackAction: SKAction?
-    private var isBusy = false
+    
+    private(set) var speedX: CGFloat = 0
+    private(set) var speedY: CGFloat = 0
     
     // MARK: - Lifecycle
     init(imageNamed imageName: String) {
@@ -34,22 +37,37 @@ class PlayerNode: SKSpriteNode {
 
 // MARK: - Methods
 extension PlayerNode {    
-    func attack() {
-        guard let attackAction = attackAction else { return }
-        isBusy = true
-        run(attackAction)
-    }
-    
     func walk() {
-        guard !isBusy else { return }
+        guard action(forKey: "walk") == nil else { return }
         guard let walkAction = walkAction else { return }
-        run(walkAction)
+        if speedX > 0 {
+            xScale = 1
+        } else if speedX < 0 {
+            xScale = -1
+        }
+        removeAllActions()
+        run(walkAction, withKey: "walk")
     }
     
     func stop() {
-        guard !isBusy else { return }
+        guard action(forKey: "idle") == nil else { return }
+        guard action(forKey: "attack") == nil else { return }
         guard let idleAction = idleAction else { return }
-        run(idleAction)
+        removeAllActions()
+        run(idleAction, withKey: "idle")
+    }
+    
+    func attack() {
+        guard action(forKey: "attack") == nil else { return }
+        guard let attackAction = attackAction else { return }
+        removeAllActions()
+        run(attackAction, withKey: "attack")
+    }
+    
+    func setSpeed(x: CGFloat, y: CGFloat) {
+        speedX = x
+        speedY = y
+        speedX == 0 ? stop() : walk()
     }
 }
 
@@ -79,12 +97,8 @@ extension PlayerNode {
         if shouldRepeat {
             return SKAction.repeatForever(action)
         } else {
-            let completionAction = SKAction.run { self.walkOrStop() }
+            let completionAction = SKAction.run { self.removeAllActions() }
             return SKAction.sequence([action, completionAction])
         }
-    }
-    
-    private func walkOrStop() {
-        isBusy = false
     }
 }
