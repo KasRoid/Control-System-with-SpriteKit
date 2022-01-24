@@ -11,6 +11,7 @@ class GameScene: SKScene {
     
     // MARK: - Properties
     private let joystickNode = JoystickNode(isOn: false)
+    private let jumpButtonNode = SKSpriteNode(imageNamed: "Button")
     private let attackButtonNode = SKSpriteNode(imageNamed: "Button")
     private let playerNode = PlayerNode(imageNamed: "Idle0")
     
@@ -28,7 +29,13 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            attackButtonNode.contains(location) ? playerNode.attack() : joystickNode.activate(at: location)
+            if attackButtonNode.contains(location) {
+                playerNode.attack()
+            } else if jumpButtonNode.contains(location) {
+                playerNode.jump()
+            } else {
+                joystickNode.activate(at: location)
+            }
         }
     }
     
@@ -47,11 +54,26 @@ class GameScene: SKScene {
     }
 }
 
+// MARK: - SKPhysicsContactDelegate
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+        if let node = nodeA as? PlayerNode {
+            node.resetJumpCount()
+        }
+        if let node = nodeB as? PlayerNode {
+            node.resetJumpCount()
+        }
+    }
+}
+
 // MARK: - UI
 extension GameScene {
     private func setBasics() {
         backgroundColor = .black
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        physicsWorld.contactDelegate = self
     }
     
     private func addNodes() {
@@ -67,13 +89,22 @@ extension GameScene {
         
         // Buttons
         addChild(joystickNode)
-        attackButtonNode.position = CGPoint(x: frame.width / 2 - 100, y: -100)
+        attackButtonNode.position = CGPoint(x: frame.width / 2 - 80, y: -80)
         attackButtonNode.alpha = 0.4
+        attackButtonNode.xScale = 0.7
+        attackButtonNode.yScale = 0.7
         addChild(attackButtonNode)
+        
+        jumpButtonNode.position = CGPoint(x: frame.width / 2 - 200, y: -100)
+        jumpButtonNode.alpha = 0.4
+        jumpButtonNode.xScale = 0.7
+        jumpButtonNode.yScale = 0.7
+        addChild(jumpButtonNode)
         
         // Player
         playerNode.position = CGPoint(x: 0, y: 0)
         playerNode.name = "player"
+        playerNode.setMaxJumpCount(2)
         addChild(playerNode)
     }
 }

@@ -17,6 +17,8 @@ class PlayerNode: SKSpriteNode {
     
     private(set) var speedX: CGFloat = 0
     private(set) var speedY: CGFloat = 0
+    private var jumpCount = 0
+    private var maxJumpCount = 1
     
     // MARK: - Lifecycle
     init(imageNamed imageName: String) {
@@ -66,12 +68,25 @@ extension PlayerNode {
     
     func setSpeed(x: CGFloat, y: CGFloat) {
         speedX = x
-        speedY = y
         speedX == 0 ? stop() : walk()
     }
     
     func move() {
         position = CGPoint(x: position.x + speedX, y: position.y + speedY)
+    }
+    
+    func jump() {
+        guard jumpCount < maxJumpCount else { return }
+        physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
+        jumpCount += 1
+    }
+    
+    func resetJumpCount() {
+        jumpCount = 0
+    }
+    
+    func setMaxJumpCount(_ count: Int) {
+        maxJumpCount = count
     }
 }
 
