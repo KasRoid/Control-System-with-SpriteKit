@@ -87,6 +87,10 @@ extension GameScene {
         groundNode.zPosition = -1
         addChild(groundNode)
         
+        let obstacleNode = GroundNode(imageName: "Platform", location: CGPoint(x: 0, y: 100), quantity: 1)
+        groundNode.zPosition = -1
+        addChild(obstacleNode)
+        
         // Buttons
         addChild(joystickNode)
         attackButtonNode.position = CGPoint(x: frame.width / 2 - 80, y: -80)

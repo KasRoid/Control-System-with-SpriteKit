@@ -40,7 +40,7 @@ class PlayerNode: SKSpriteNode {
 // MARK: - Methods
 extension PlayerNode {    
     func walk() {
-        guard action(forKey: "walk") == nil else { return }
+        guard action(forKey: "Walk") == nil else { return }
         guard let walkAction = walkAction else { return }
         if speedX > 0 {
             xScale = 1
@@ -48,22 +48,22 @@ extension PlayerNode {
             xScale = -1
         }
         removeAllActions()
-        run(walkAction, withKey: "walk")
+        run(walkAction, withKey: "Walk")
     }
     
     func stop() {
-        guard action(forKey: "idle") == nil else { return }
-        guard action(forKey: "attack") == nil else { return }
+        guard action(forKey: "Idle") == nil else { return }
+        guard action(forKey: "Attack") == nil else { return }
         guard let idleAction = idleAction else { return }
         removeAllActions()
-        run(idleAction, withKey: "idle")
+        run(idleAction, withKey: "Idle")
     }
     
     func attack() {
-        guard action(forKey: "attack") == nil else { return }
+        guard action(forKey: "Attack") == nil else { return }
         guard let attackAction = attackAction else { return }
         removeAllActions()
-        run(attackAction, withKey: "attack")
+        run(attackAction, withKey: "Attack")
     }
     
     func setSpeed(x: CGFloat, y: CGFloat) {
