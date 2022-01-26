@@ -49,6 +49,7 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard joystickNode.isActive else { return }
         joystickNode.deactivate()
         playerNode.setSpeed(x: 0, y: 0)
     }

@@ -28,7 +28,6 @@ class JoystickNode: SKNode {
 // MARK: - Methods
 extension JoystickNode {
     func activate(at location: CGPoint) {
-        isActive = true
         showStick(true)
         baseNode.position = location
         ballNode.position = location
@@ -61,9 +60,11 @@ extension JoystickNode {
 extension JoystickNode {
     private func showStick(_ isOn: Bool, animated: Bool = true) {
         if isOn {
+            isActive = true
             baseNode.alpha = 0.6
             ballNode.alpha = 0.6
         } else {
+            isActive = false
             if animated {
                 let fadeAction = SKAction.fadeAlpha(to: 0, duration: 0.2)
                 baseNode.run(fadeAction)
