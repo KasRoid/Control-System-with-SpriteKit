@@ -77,7 +77,7 @@ extension PlayerNode {
     
     func jump() {
         guard jumpCount < maxJumpCount else { return }
-        physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
+        physicsBody?.applyImpulse(CGVector(dx: 0, dy: 225))
         jumpCount += 1
     }
     
@@ -93,7 +93,7 @@ extension PlayerNode {
 // MARK: - Physics
 extension PlayerNode {
     private func setPhysics(texture: SKTexture) {
-        let body = SKPhysicsBody(texture: texture, size: texture.size())
+        let body = SKPhysicsBody(rectangleOf: texture.size())
         body.affectedByGravity = true
         body.allowsRotation = false
         body.categoryBitMask = BodyType.player.rawValue
