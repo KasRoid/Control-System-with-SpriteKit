@@ -43,15 +43,22 @@ class GameScene: SKScene {
         for touch in touches {
             guard joystickNode.isActive else { return }
             let location = touch.location(in: self)
-            let movement = joystickNode.move(location: location)
-            playerNode.setSpeed(x: movement.x, y: movement.y)
+            if joystickNode.contains(location) {
+                let movement = joystickNode.move(location: location)
+                playerNode.setSpeed(x: movement.x, y: movement.y)
+            }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard joystickNode.isActive else { return }
-        joystickNode.deactivate()
-        playerNode.setSpeed(x: 0, y: 0)
+        for touch in touches {
+            let location = touch.location(in: self)
+            if joystickNode.contains(location) {
+                joystickNode.deactivate()
+                playerNode.setSpeed(x: 0, y: 0)                
+            }
+        }
     }
 }
 
@@ -75,6 +82,7 @@ extension GameScene {
         backgroundColor = .black
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         physicsWorld.contactDelegate = self
+        view?.isMultipleTouchEnabled = true
     }
     
     private func addNodes() {

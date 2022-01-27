@@ -39,7 +39,7 @@ class PlayerNode: SKSpriteNode {
 
 // MARK: - Methods
 extension PlayerNode {    
-    func walk() {
+    private func walk() {
         guard action(forKey: "Walk") == nil else { return }
         guard let walkAction = walkAction else { return }
         if speedX > 0 {
@@ -51,7 +51,7 @@ extension PlayerNode {
         run(walkAction, withKey: "Walk")
     }
     
-    func stop() {
+    private func stop() {
         guard action(forKey: "Idle") == nil else { return }
         guard action(forKey: "Attack") == nil else { return }
         guard let idleAction = idleAction else { return }
@@ -73,6 +73,7 @@ extension PlayerNode {
     
     func move() {
         position = CGPoint(x: position.x + speedX, y: position.y + speedY)
+        print(speedX)
     }
     
     func jump() {
