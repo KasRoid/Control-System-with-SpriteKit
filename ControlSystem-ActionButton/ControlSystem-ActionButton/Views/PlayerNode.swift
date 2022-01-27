@@ -73,7 +73,6 @@ extension PlayerNode {
     
     func move() {
         position = CGPoint(x: position.x + speedX, y: position.y + speedY)
-        print(speedX)
     }
     
     func jump() {

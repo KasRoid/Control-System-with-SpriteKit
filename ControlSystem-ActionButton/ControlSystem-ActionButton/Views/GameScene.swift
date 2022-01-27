@@ -33,7 +33,7 @@ class GameScene: SKScene {
                 playerNode.attack()
             } else if jumpButtonNode.contains(location) {
                 playerNode.jump()
-            } else {
+            } else if location.x < 0 {
                 joystickNode.activate(at: location)
             }
         }
@@ -56,7 +56,7 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             if joystickNode.contains(location) {
                 joystickNode.deactivate()
-                playerNode.setSpeed(x: 0, y: 0)                
+                playerNode.setSpeed(x: 0, y: 0)
             }
         }
     }
