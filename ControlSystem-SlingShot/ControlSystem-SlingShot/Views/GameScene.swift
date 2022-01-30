@@ -9,7 +9,17 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    private let backgroundNode = SKSpriteNode(imageNamed: "Background")
+    
     override func didMove(to view: SKView) {
-        print(#function)
+        setUI()
+    }
+}
+
+extension GameScene {
+    private func setUI() {
+        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        backgroundNode.size = frame.size
+        addChild(backgroundNode)
     }
 }
