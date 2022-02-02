@@ -12,6 +12,7 @@ class GameScene: SKScene {
     private let backgroundNode = SKSpriteNode(imageNamed: "Background")
     private let playerNode = SKSpriteNode(imageNamed: "Ghost")
     private let triggerNode = TriggerNode()
+    private lazy var platformNode = createPlatform()
     
     override func didMove(to view: SKView) {
         setUI()
@@ -61,6 +62,8 @@ extension GameScene {
         setBackgroundNode()
         setTriggerNode()
         setPlayerNode()
+        platformNode.position = CGPoint(x: -frame.width / 2 + platformNode.nodeSize.width / 2, y: -platformNode.nodeSize.height)
+        addChild(platformNode)
     }
     
     private func setBackgroundNode() {
@@ -82,5 +85,11 @@ extension GameScene {
         triggerNode.zPosition = 1
         triggerNode.alpha = 0.3
         addChild(triggerNode)
+    }
+    
+    private func createPlatform() -> PlatformNode {
+        let nodeWidth = SKSpriteNode(imageNamed: "Platform").size.width
+        let count = Int(ceil(frame.width / nodeWidth))
+        return PlatformNode(numberOfNodes: count)
     }
 }

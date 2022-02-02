@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42D17BA327AA9C9500BA0B56 /* PlatformNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */; };
 		42E4404927A4D7FD00EB7012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4404827A4D7FD00EB7012 /* AppDelegate.swift */; };
 		42E4404B27A4D7FD00EB7012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4404A27A4D7FD00EB7012 /* SceneDelegate.swift */; };
 		42E4404D27A4D7FD00EB7012 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4404C27A4D7FD00EB7012 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformNode.swift; sourceTree = "<group>"; };
 		42E4404527A4D7FD00EB7012 /* ControlSystem-SlingShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ControlSystem-SlingShot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E4404827A4D7FD00EB7012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42E4404A27A4D7FD00EB7012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,8 +95,9 @@
 		42E4405E27A4D83B00EB7012 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42E4406027A4D8B800EB7012 /* GameScene.swift */,
 				42E4406227A4D8D800EB7012 /* GameScene.sks */,
+				42E4406027A4D8B800EB7012 /* GameScene.swift */,
+				42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */,
 				42E4406527A6D07700EB7012 /* TriggerNode.swift */,
 			);
 			path = Views;
@@ -176,6 +179,7 @@
 				42E4404927A4D7FD00EB7012 /* AppDelegate.swift in Sources */,
 				42E4406127A4D8B800EB7012 /* GameScene.swift in Sources */,
 				42E4406627A6D07700EB7012 /* TriggerNode.swift in Sources */,
+				42D17BA327AA9C9500BA0B56 /* PlatformNode.swift in Sources */,
 				42E4404B27A4D7FD00EB7012 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
