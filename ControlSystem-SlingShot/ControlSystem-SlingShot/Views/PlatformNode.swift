@@ -30,6 +30,7 @@ class PlatformNode: SKNode {
         self.init()
         createNodes(numberOfNodes)
         locateNodes()
+        applyPhysicsBody()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +52,14 @@ extension PlatformNode {
             $0.position = CGPoint(x: xPosition, y: 0)
             addChild($0)
             xPosition += $0.frame.width
+        }
+    }
+    
+    private func applyPhysicsBody() {
+        nodes.forEach {
+            physicsBody = SKPhysicsBody(texture: $0.texture ?? SKTexture(), size: $0.size)
+            physicsBody?.affectedByGravity = false
+            physicsBody?.isDynamic = false
         }
     }
 }
