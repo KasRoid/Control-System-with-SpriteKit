@@ -53,17 +53,25 @@ extension GameScene {
         playerNode.physicsBody = SKPhysicsBody(texture: playerNode.texture!, size: playerNode.size)
         playerNode.physicsBody?.isDynamic = true
         playerNode.physicsBody?.affectedByGravity = true
+        playerNode.physicsBody?.categoryBitMask = BitMask.playerCategory
+        playerNode.physicsBody?.contactTestBitMask = BitMask.platformCategory
+    }
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        print(#function)
     }
 }
 
 extension GameScene {
     private func setUI() {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        physicsWorld.contactDelegate = self
         setBackgroundNode()
         setTriggerNode()
         setPlayerNode()
-        platformNode.position = CGPoint(x: -frame.width / 2 + platformNode.nodeSize.width / 2, y: -platformNode.nodeSize.height)
-        addChild(platformNode)
+        setPlatformNode()
     }
     
     private func setBackgroundNode() {
@@ -85,6 +93,11 @@ extension GameScene {
         triggerNode.zPosition = 1
         triggerNode.alpha = 0.3
         addChild(triggerNode)
+    }
+    
+    private func setPlatformNode() {
+        platformNode.position = CGPoint(x: -frame.width / 2 + platformNode.nodeSize.width / 2, y: -platformNode.nodeSize.height * 1.4)
+        addChild(platformNode)
     }
     
     private func createPlatform() -> PlatformNode {

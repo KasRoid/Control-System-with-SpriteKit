@@ -60,6 +60,8 @@ extension PlatformNode {
             physicsBody = SKPhysicsBody(texture: $0.texture ?? SKTexture(), size: $0.size)
             physicsBody?.affectedByGravity = false
             physicsBody?.isDynamic = false
+            physicsBody?.categoryBitMask = BitMask.platformCategory
+            physicsBody?.contactTestBitMask = BitMask.playerCategory
         }
     }
 }
