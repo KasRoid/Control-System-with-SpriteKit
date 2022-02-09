@@ -10,21 +10,12 @@ import SpriteKit
 class GameScene: SKScene {
     
     private let backgroundNode = SKSpriteNode(imageNamed: "Background")
-    private let playerNode = SKSpriteNode(imageNamed: "Ghost")
+    private let playerNode = PlayerNode(imageName: "Ghost")
     private let triggerNode = TriggerNode()
     private lazy var platformNode = createPlatform()
     
     override func didMove(to view: SKView) {
         setUI()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            if triggerNode.contains(location) {
-                
-            }
-        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,23 +29,8 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        returnPlayerToTheStartingPoint()
-        addPhysicsToPlayerNode()
-    }
-}
-
-extension GameScene {
-    private func returnPlayerToTheStartingPoint() {
-        let moveAction = SKAction.move(to: triggerNode.position, duration: 0.1)
-        playerNode.run(moveAction)
-    }
-    
-    private func addPhysicsToPlayerNode() {
-        playerNode.physicsBody = SKPhysicsBody(texture: playerNode.texture!, size: playerNode.size)
-        playerNode.physicsBody?.isDynamic = true
-        playerNode.physicsBody?.affectedByGravity = true
-        playerNode.physicsBody?.categoryBitMask = BitMask.playerCategory
-        playerNode.physicsBody?.contactTestBitMask = BitMask.platformCategory
+        playerNode.move(to: triggerNode.position)
+        playerNode.applyPhysics()
     }
 }
 

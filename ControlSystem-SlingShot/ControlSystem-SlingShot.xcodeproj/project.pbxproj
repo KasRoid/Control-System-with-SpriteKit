@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		423B482427B2A06C0022C46F /* BitMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B482327B2A06C0022C46F /* BitMask.swift */; };
+		423B482727B337930022C46F /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B482627B337930022C46F /* PlayerNode.swift */; };
 		42D17BA327AA9C9500BA0B56 /* PlatformNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */; };
 		42E4404927A4D7FD00EB7012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4404827A4D7FD00EB7012 /* AppDelegate.swift */; };
 		42E4404B27A4D7FD00EB7012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4404A27A4D7FD00EB7012 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		423B482327B2A06C0022C46F /* BitMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMask.swift; sourceTree = "<group>"; };
+		423B482627B337930022C46F /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformNode.swift; sourceTree = "<group>"; };
 		42E4404527A4D7FD00EB7012 /* ControlSystem-SlingShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ControlSystem-SlingShot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E4404827A4D7FD00EB7012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				42E4406027A4D8B800EB7012 /* GameScene.swift */,
 				42D17BA227AA9C9500BA0B56 /* PlatformNode.swift */,
 				42E4406527A6D07700EB7012 /* TriggerNode.swift */,
+				423B482627B337930022C46F /* PlayerNode.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				42E4406627A6D07700EB7012 /* TriggerNode.swift in Sources */,
 				42D17BA327AA9C9500BA0B56 /* PlatformNode.swift in Sources */,
 				423B482427B2A06C0022C46F /* BitMask.swift in Sources */,
+				423B482727B337930022C46F /* PlayerNode.swift in Sources */,
 				42E4404B27A4D7FD00EB7012 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
