@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         guard let view = view as? SKView else { return }
         let scene = SKScene(fileNamed: "GameScene")
+        view.showsPhysics = true
         view.presentScene(scene)
     }
 }

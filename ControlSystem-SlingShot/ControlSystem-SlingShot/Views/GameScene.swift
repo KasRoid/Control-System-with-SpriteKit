@@ -29,8 +29,14 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        playerNode.move(to: triggerNode.position)
-        playerNode.applyPhysics()
+        for touch in touches {
+            let location = touch.location(in: self)
+            if triggerNode.contains(location) {
+                let vector = CGVector(dx: -(location.x - triggerNode.position.x), dy: -(location.y - triggerNode.position.y))
+                playerNode.applyPhysics()
+                playerNode.applyImpulse(impulse: vector)
+            }
+        }
     }
 }
 

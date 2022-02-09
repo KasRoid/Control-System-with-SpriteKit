@@ -25,6 +25,10 @@ extension PlayerNode {
         run(moveAction)
     }
     
+    func applyImpulse(impulse: CGVector) {
+        physicsBody?.applyImpulse(impulse)
+    }
+    
     func applyPhysics() {
         guard let texture = texture else { return }
         physicsBody = SKPhysicsBody(texture: texture, size: size)
