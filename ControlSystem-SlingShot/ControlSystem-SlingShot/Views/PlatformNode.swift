@@ -57,11 +57,11 @@ extension PlatformNode {
     
     private func applyPhysicsBody() {
         nodes.forEach {
-            physicsBody = SKPhysicsBody(texture: $0.texture ?? SKTexture(), size: $0.size)
-            physicsBody?.affectedByGravity = false
-            physicsBody?.isDynamic = false
-            physicsBody?.categoryBitMask = BitMask.platformCategory
-            physicsBody?.contactTestBitMask = BitMask.playerCategory
+            $0.physicsBody = SKPhysicsBody(texture: $0.texture ?? SKTexture(), size: $0.size)
+            $0.physicsBody?.affectedByGravity = false
+            $0.physicsBody?.isDynamic = false
+            $0.physicsBody?.categoryBitMask = BitMask.platformCategory
+            $0.physicsBody?.contactTestBitMask = BitMask.playerCategory
         }
     }
 }
