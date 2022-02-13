@@ -18,6 +18,17 @@ class GameScene: SKScene {
         setUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            if triggerNode.contains(location) {
+                let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
+                playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
+                playerNode.reset()
+            }
+        }
+    }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)

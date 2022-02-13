@@ -34,11 +34,14 @@ extension PlayerNode {
         physicsBody = SKPhysicsBody(texture: texture, size: size)
         physicsBody?.isDynamic = true
         physicsBody?.affectedByGravity = true
+        physicsBody?.allowsRotation = true
         physicsBody?.categoryBitMask = BitMask.playerCategory
         physicsBody?.contactTestBitMask = BitMask.platformCategory
     }
     
-    func removePhysics() {
+    func reset() {
+        physicsBody?.allowsRotation = false
         physicsBody = nil
+        zRotation = .zero
     }
 }
