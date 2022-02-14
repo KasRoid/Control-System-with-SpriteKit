@@ -13,6 +13,7 @@ class GameScene: SKScene {
     private let playerNode = PlayerNode(imageName: "Ghost")
     private let triggerNode = TriggerNode()
     private lazy var platformNode = createPlatform()
+    private var impulse: CGVector = .zero
     
     override func didMove(to view: SKView) {
         setUI()
@@ -22,6 +23,7 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             if triggerNode.contains(location) {
+                triggerNode.setStatus(isActive: true)
                 let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
                 playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
                 playerNode.reset()
@@ -35,6 +37,7 @@ class GameScene: SKScene {
             if triggerNode.contains(location) {
                 let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
                 playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
+                setImpulse(location: location)
             }
         }
     }
@@ -42,12 +45,20 @@ class GameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
+            guard triggerNode.isActive else { return }
             if triggerNode.contains(location) {
-                let vector = CGVector(dx: -(location.x - triggerNode.position.x), dy: -(location.y - triggerNode.position.y))
-                playerNode.applyPhysics()
-                playerNode.applyImpulse(impulse: vector)
+                setImpulse(location: location)
             }
+            playerNode.applyPhysics()
+            playerNode.applyImpulse(impulse: impulse)
+            triggerNode.setStatus(isActive: false)
         }
+    }
+}
+
+extension GameScene {
+    private func setImpulse(location: CGPoint) {
+        impulse = CGVector(dx: -(location.x - triggerNode.position.x) * 0.7, dy: -(location.y - triggerNode.position.y) * 0.7)
     }
 }
 

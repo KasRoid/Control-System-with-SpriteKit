@@ -9,6 +9,8 @@ import SpriteKit
 
 class TriggerNode: SKShapeNode {
     
+    private(set) var isActive = false
+    
     override init() {
         super.init()
         setUI()
@@ -18,6 +20,9 @@ class TriggerNode: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setStatus(isActive: Bool) {
+        self.isActive = isActive
+    }
 }
 
 extension TriggerNode {
