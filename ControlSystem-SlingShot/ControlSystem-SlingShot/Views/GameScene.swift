@@ -14,15 +14,21 @@ class GameScene: SKScene {
     private let triggerNode = TriggerNode()
     private lazy var platformNode = createPlatform()
     private var impulse: CGVector = .zero
+    private lazy var positionX = playerNode.position.x
     
     override func didMove(to view: SKView) {
         setUI()
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        moveBackground()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
             if triggerNode.contains(location) {
+                resetBackground()
                 triggerNode.setStatus(isActive: true)
                 let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
                 playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
@@ -37,7 +43,7 @@ class GameScene: SKScene {
             if triggerNode.contains(location) {
                 let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
                 playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
-                setImpulse(location: location)
+                setImpulse(location: location) 
             }
         }
     }
@@ -59,6 +65,19 @@ class GameScene: SKScene {
 extension GameScene {
     private func setImpulse(location: CGPoint) {
         impulse = CGVector(dx: -(location.x - triggerNode.position.x) * 0.7, dy: -(location.y - triggerNode.position.y) * 0.7)
+    }
+    
+    private func moveBackground() {
+        let triggerNodeEndPositionX = triggerNode.position.x + triggerNode.frame.width / 2
+        if triggerNodeEndPositionX < playerNode.position.x {
+            let move = SKAction.move(to: CGPoint(x: -playerNode.position.x + positionX, y: 0), duration: 0)
+            backgroundNode.run(move)
+        }
+    }
+    
+    private func resetBackground() {
+        let move = SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0)
+        backgroundNode.run(move)
     }
 }
 
@@ -101,7 +120,7 @@ extension GameScene {
     
     private func setPlatformNode() {
         platformNode.position = CGPoint(x: -frame.width / 2 + platformNode.nodeSize.width / 2, y: -platformNode.nodeSize.height * 1.4)
-        addChild(platformNode)
+        backgroundNode.addChild(platformNode)
     }
     
     private func createPlatform() -> PlatformNode {
