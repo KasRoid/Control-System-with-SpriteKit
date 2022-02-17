@@ -9,7 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    private let backgroundNode = SKSpriteNode(imageNamed: "Background")
+    private lazy var worldNode = createWorld()
     private let playerNode = PlayerNode(imageName: "Ghost")
     private let triggerNode = TriggerNode()
     private lazy var platformNode = createPlatform()
@@ -43,7 +43,7 @@ class GameScene: SKScene {
             if triggerNode.contains(location) {
                 let vector = CGVector(dx: location.x - triggerNode.position.x, dy: location.y - triggerNode.position.y)
                 playerNode.position = CGPoint(x: triggerNode.position.x + vector.dx, y: triggerNode.position.y + vector.dy)
-                setImpulse(location: location) 
+                setImpulse(location: location)
             }
         }
     }
@@ -71,13 +71,13 @@ extension GameScene {
         let triggerNodeEndPositionX = triggerNode.position.x + triggerNode.frame.width / 2
         if triggerNodeEndPositionX < playerNode.position.x {
             let move = SKAction.move(to: CGPoint(x: -playerNode.position.x + positionX, y: 0), duration: 0)
-            backgroundNode.run(move)
+            worldNode.run(move)
         }
     }
     
     private func resetBackground() {
         let move = SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0)
-        backgroundNode.run(move)
+        worldNode.run(move)
     }
 }
 
@@ -91,15 +91,19 @@ extension GameScene {
     private func setUI() {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         physicsWorld.contactDelegate = self
-        setBackgroundNode()
+        setWorldNode()
         setTriggerNode()
         setPlayerNode()
         setPlatformNode()
     }
     
-    private func setBackgroundNode() {
-        backgroundNode.size = frame.size
-        addChild(backgroundNode)
+    private func setWorldNode() {
+        worldNode.position = CGPoint(x: -frame.width / 2 + worldNode.nodeSize.width / 2, y: 0)
+        addChild(worldNode)
+    }
+    
+    private func createWorld() -> WorldNode {
+        return WorldNode(numberOfNodes: 3)
     }
     
     private func setPlayerNode() {
@@ -120,7 +124,7 @@ extension GameScene {
     
     private func setPlatformNode() {
         platformNode.position = CGPoint(x: -frame.width / 2 + platformNode.nodeSize.width / 2, y: -platformNode.nodeSize.height * 1.4)
-        backgroundNode.addChild(platformNode)
+        worldNode.addChild(platformNode)
     }
     
     private func createPlatform() -> PlatformNode {
